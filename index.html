@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spin — music player</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="player" id="player" aria-label="Music player">
+      <div class="disc" aria-hidden="true"><span></span></div>
+
+      <div class="meta">
+        <h1 id="title">Loading…</h1>
+        <p id="artist"></p>
+      </div>
+
+      <div class="seek">
+        <span id="current">0:00</span>
+        <input type="range" id="progress" min="0" max="1000" value="0" aria-label="Seek">
+        <span id="duration">0:00</span>
+      </div>
+
+      <div class="controls">
+        <button class="ghost" id="shuffle" aria-label="Shuffle" aria-pressed="false" title="Shuffle">
+          <svg viewBox="0 0 24 24"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+        </button>
+        <button id="prev" aria-label="Previous song">
+          <svg viewBox="0 0 24 24"><path d="M6 5v14M19 5 9 12l10 7z" class="fill"/></svg>
+        </button>
+        <button class="main" id="playBtn" aria-label="Play">
+          <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" class="fill"/></svg>
+          <svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z" class="fill"/></svg>
+        </button>
+        <button id="next" aria-label="Next song">
+          <svg viewBox="0 0 24 24"><path d="M18 5v14M5 5l10 7-10 7z" class="fill"/></svg>
+        </button>
+        <button class="ghost" id="repeat" aria-label="Repeat current song" aria-pressed="false" title="Repeat one">
+          <svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 0 1-3 3H3"/></svg>
+        </button>
+      </div>
+
+      <div class="volume">
+        <button class="ghost" id="mute" aria-label="Mute">
+          <svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z" class="fill"/><path class="wave" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg>
+        </button>
+        <input type="range" id="volume" min="0" max="100" value="70" aria-label="Volume">
+      </div>
+
+      <p class="status" id="status" role="status"></p>
+    </section>
+
+    <section class="playlist" aria-label="Playlist">
+      <h2>Playlist</h2>
+      <ol id="list"></ol>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
